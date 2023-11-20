@@ -13,6 +13,7 @@ export default defineConfig({
       services: '/src/services',
       config: '/src/config',
       contexts: '/src/contexts',
+      hooks: '/src/hooks',
     },
   },
   plugins: [react()],

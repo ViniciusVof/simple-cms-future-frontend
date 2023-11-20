@@ -7,6 +7,7 @@ const routes = [
   { path: '/dashboard', element: <Pages.Dashboard />, private: true },
   { path: '/login', element: <Pages.Login />, private: false },
   { path: '/register', element: <Pages.Register />, private: false },
+  { path: '/users', element: <Pages.Users />, private: true },
   { path: '*', element: <Pages.Login />, private: false },
 ];
 

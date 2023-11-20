@@ -21,7 +21,9 @@ export function AppProvider({ children }: AppProviderProps) {
 
   return (
     <AppContext.Provider value={{ setLoading }}>
-      <AuthProvider>{loading ? <Loading /> : children}</AuthProvider>
+      <AuthProvider>
+        {loading && <Loading />} {children}
+      </AuthProvider>
       <ToastContainer />
     </AppContext.Provider>
   );
