@@ -15,3 +15,10 @@ export const Content = styled.div`
   padding: 32px;
   box-sizing: border-box;
 `;
+
+export const Title = styled.h1`
+  font-size: 24px;
+  font-weight: 400;
+  color: #274060;
+  margin-bottom: 20px;
+`;
