@@ -27,6 +27,7 @@ type AuthContextData = {
   signIn: (data: SignInProps) => void;
   signUp: (data: SignUpProps) => void;
   signOut: () => void;
+  isAuthenticated: boolean;
 };
 
 type AuthProviderProps = {
@@ -39,6 +40,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const navigate = useNavigate();
   const [user, setUser] = useState<UserProps | null>(null);
   const token = localStorage.getItem('@future:token');
+  const isAuthenticated = !!token;
 
   function saveToken(token: string) {
     localStorage.setItem('@future:token', token);
@@ -95,7 +97,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signUp, signOut }}>
+    <AuthContext.Provider
+      value={{ user, signIn, signUp, signOut, isAuthenticated }}
+    >
       {children}
     </AuthContext.Provider>
   );

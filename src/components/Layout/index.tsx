@@ -1,5 +1,8 @@
 import { SEO } from 'components/SEO';
 import { ReactNode } from 'react';
+import { SidebarMenu } from './SidebarMenu';
+
+import { Container, Content } from './styles';
 
 interface LayoutProps {
   children?: ReactNode;
@@ -10,7 +13,10 @@ export function Layout({ children, titleSEO }: LayoutProps) {
   return (
     <>
       <SEO title={titleSEO} />
-      {children}
+      <Container>
+        <SidebarMenu />
+        <Content>{children}</Content>
+      </Container>
     </>
   );
 }

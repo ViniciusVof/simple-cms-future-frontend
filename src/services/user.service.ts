@@ -7,7 +7,7 @@ async function AuthUser({
   email: string;
   password: string;
 }) {
-  const response = await post('/authenticate', { email, password });
+  const response = await post('users/authenticate', { email, password });
 
   return response;
 }
