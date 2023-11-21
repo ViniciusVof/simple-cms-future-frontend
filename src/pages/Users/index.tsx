@@ -1,5 +1,5 @@
 import * as Components from 'components';
-import { ModalCRUD } from 'components/Modal';
+import { ModalCRUD } from 'components/ModalCRUD';
 import { Table } from 'components/Table';
 import useUsers from 'hooks/useUsers';
 import { useState } from 'react';
