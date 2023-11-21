@@ -31,6 +31,7 @@ type ModalCRUDProps = {
   schema: any;
   editData: any;
   title: string;
+  pluralTitle: string;
 };
 
 type SelectFieldError = {
@@ -46,6 +47,7 @@ export function ModalCRUD({
   schema,
   editData,
   title,
+  pluralTitle,
 }: ModalCRUDProps) {
   const {
     control,
@@ -78,16 +80,15 @@ export function ModalCRUD({
   function getTitles() {
     const isEdit = !!editData;
 
-    const formattedTitle = capitalize(
-      title.charAt(title.length - 1) === 's' ? title : ` ${title}s`
-    );
-    const singularTitle = formattedTitle.slice(0, formattedTitle.length - 1);
+    const formattedTitle = capitalize(title);
+
+    const formattedPluralTitle = capitalize(pluralTitle);
 
     const listTypesTitles = {
-      addTitle: `Adicionar ${formattedTitle}`,
-      editTitle: `Editar ${singularTitle}`,
-      addButton: `Adicionar ${singularTitle}`,
-      editButton: `Editar ${singularTitle}`,
+      addTitle: `Adicionar ${formattedPluralTitle}`,
+      editTitle: `Editar ${formattedTitle}`,
+      addButton: `Adicionar ${formattedTitle}`,
+      editButton: `Editar ${formattedTitle}`,
     };
 
     return {

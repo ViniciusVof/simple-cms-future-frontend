@@ -1,8 +1,8 @@
 import { AppContext } from 'contexts/AppContext';
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import userService from 'services/user.service';
+import formatDate from 'utils/formatDate';
 
 type UserResponse = {
   id: string;
@@ -20,7 +20,6 @@ type AddUserRequest = {
 };
 
 const useUsers = () => {
-  const navigate = useNavigate();
   const { setLoading } = useContext(AppContext);
   const [users, setUsers] = useState<UserResponse[]>([]);
   const [user, setUser] = useState<UserResponse>();
@@ -46,9 +45,7 @@ const useUsers = () => {
       .GetUsers()
       .then(response => {
         const adaptUser = (response.data as UserResponse[]).map(user => {
-          user.created_at = new Date(user.created_at).toLocaleDateString(
-            'pt-br'
-          );
+          user.created_at = formatDate(user.created_at);
           return user;
         });
         setUsers(adaptUser);

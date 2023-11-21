@@ -36,6 +36,7 @@ export function Users() {
   return (
     <>
       <ModalCRUD
+        pluralTitle="Usuários"
         title="Usuário"
         isOpen={modalOpen}
         onSubmit={data => (editData ? editUser(data.id, data) : addUser(data))}

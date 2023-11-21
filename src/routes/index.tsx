@@ -8,11 +8,7 @@ const routes = [
   { path: '/login', element: <Pages.Login />, private: false },
   { path: '/register', element: <Pages.Register />, private: false },
   { path: '/users', element: <Pages.Users />, private: true },
-  { path: '/users/add', element: <Pages.CreateUser />, private: true },
-  { path: '/user', element: <Pages.EditUser />, private: true },
   { path: '/carousels', element: <Pages.Carousels />, private: true },
-  { path: '/carousels/add', element: <Pages.CreateCarousel />, private: true },
-  { path: '/carousel', element: <Pages.EditCarousel />, private: true },
 ];
 
 export function Router() {
