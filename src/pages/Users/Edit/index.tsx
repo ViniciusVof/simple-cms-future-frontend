@@ -48,7 +48,7 @@ export function EditUser() {
   }
 
   return (
-    <Components.Layout titleSEO="Adicionar Usuário">
+    <Components.Layout titleSEO="Editar Usuário">
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           type="text"
@@ -72,7 +72,7 @@ export function EditUser() {
           {...register('password', { value: user?.password })}
         />
         <Button type="submit" loading={isLoading} fullWidth={true}>
-          Adicionar
+          Editar
         </Button>
       </form>
     </Components.Layout>
