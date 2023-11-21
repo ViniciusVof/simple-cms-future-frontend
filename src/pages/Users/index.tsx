@@ -3,27 +3,48 @@ import { ModalCRUD } from 'components/Modal';
 import { Table } from 'components/Table';
 import useUsers from 'hooks/useUsers';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import * as yup from 'yup';
 
 export function Users() {
-  const [modalOpen, setModalOpen] = useState(true);
-  const { users, getUser, deleteUser } = useUsers();
-  const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const { users, getUser, deleteUser, addUser, editUser } = useUsers();
+  const [editData, setEditData] = useState<any>(null);
 
   async function handleEdit(id: string) {
-    getUser(id, user => navigate(`/user`, { state: { id, user } }));
+    getUser(id, user => {
+      setEditData(user);
+      setModalOpen(true);
+    });
   }
 
   async function handleDelete(id: string) {
     deleteUser(id);
   }
 
+  const UserRegisterSchema = yup
+    .object()
+    .shape({
+      fullName: yup.string().required('Campo obrigatório'),
+      email: yup
+        .string()
+        .email('E-mail inválido')
+        .required('Campo obrigatório'),
+      password: yup.string().required('Campo obrigatório'),
+    })
+    .required();
+
   return (
     <>
       <ModalCRUD
-        title="Adicionar usuários"
+        title="Usuário"
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onSubmit={data => (editData ? editUser(data.id, data) : addUser(data))}
+        onClose={() => {
+          setModalOpen(false);
+          setEditData(null);
+        }}
+        schema={UserRegisterSchema}
+        editData={editData}
         fields={[
           {
             name: 'fullName',
@@ -43,25 +64,16 @@ export function Users() {
             placeholder: 'Digite a senha',
             fullWidth: true,
           },
-          // {
-          //   name: 'type',
-          //   type: 'select',
-          //   placeholder: 'Selecione o tipo de usuário',
-          //   fullWidth: true,
-          //   options: [
-          //     { value: 'admin', label: 'Administrador' },
-          //     { value: 'user', label: 'Usuário' },
-          //   ],
-          // },
         ]}
-      >
-        teste
-      </ModalCRUD>
+      />
       <Components.Layout
         titleSEO="Usuários"
         button={{
           children: 'Novo Usuário',
-          onClick: () => navigate('/users/add'),
+          onClick: () => {
+            setEditData(null);
+            setModalOpen(true);
+          },
           variant: 'primary',
         }}
       >

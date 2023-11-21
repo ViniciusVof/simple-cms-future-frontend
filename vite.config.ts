@@ -14,6 +14,7 @@ export default defineConfig({
       config: '/src/config',
       contexts: '/src/contexts',
       hooks: '/src/hooks',
+      utils: '/src/utils',
     },
   },
   plugins: [react()],

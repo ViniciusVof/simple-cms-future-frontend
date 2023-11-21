@@ -30,7 +30,7 @@ const useUsers = () => {
       .CreateUser({ fullName, email, password })
       .then(() => {
         toast.success('Usuário cadastrado com sucesso!');
-        navigate('/users');
+        loadUsers();
       })
       .catch(error => {
         console.log(error.response.data.message);
