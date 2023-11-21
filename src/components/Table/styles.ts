@@ -83,7 +83,7 @@ export const TableBodyCell = styled.td`
 
 export const TableBodyActions = styled.div`
   padding: 16px;
-  text-align: left;
+  text-align: center;
   font-weight: 400;
   font-size: 14px;
   color: #000;
