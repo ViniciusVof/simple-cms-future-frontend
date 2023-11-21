@@ -11,7 +11,6 @@ export const Input = styled.input<InputProps>`
   border-radius: 4px;
   font-size: 16px;
   outline: none;
-  margin-bottom: 36px;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   transition: border-color 0.5s;
 
@@ -20,10 +19,15 @@ export const Input = styled.input<InputProps>`
   }
 `;
 
-export const Error = styled.span`
+interface ErrorProps {
+  error: boolean;
+}
+
+export const Error = styled.span<ErrorProps>`
+  visibility: ${({ error }) => (error ? 'block' : 'hidden')};
   color: #f00;
   font-size: 14px;
-  margin-top: -28px;
-  margin-bottom: 18px;
+  padding-top: 8px;
+  height: 36px;
   align-self: flex-start;
 `;

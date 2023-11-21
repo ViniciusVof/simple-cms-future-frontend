@@ -28,7 +28,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
           ref={ref}
           {...rest}
         />
-        {!!error && <Error>{error}</Error>}
+        <Error error={!!error}>{error}</Error>
       </>
     );
   }

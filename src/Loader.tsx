@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     background-color: #ececec;
   }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export function Loader() {

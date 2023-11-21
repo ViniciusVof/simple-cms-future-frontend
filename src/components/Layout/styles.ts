@@ -16,6 +16,13 @@ export const Content = styled.div`
   box-sizing: border-box;
 `;
 
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+`;
+
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: 400;

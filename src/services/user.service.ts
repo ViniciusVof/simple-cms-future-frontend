@@ -38,15 +38,16 @@ async function GetUser(id: string) {
   return response;
 }
 
-async function UpdateUser({
-  id,
-  fullName,
-  password,
-}: {
-  id: string;
-  fullName: string;
-  password: string;
-}) {
+async function UpdateUser(
+  id: string,
+  {
+    fullName,
+    password,
+  }: {
+    fullName: string;
+    password: string;
+  }
+) {
   const response = await put(`/users/update/${id}`, { fullName, password });
 
   return response;

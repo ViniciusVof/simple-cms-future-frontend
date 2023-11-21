@@ -18,6 +18,7 @@ export function Button({
   type = 'button',
   loading = false,
   variant = 'primary',
+  ...rest
 }: ButtonProps) {
   return (
     <S.Button
@@ -25,6 +26,7 @@ export function Button({
       disabled={loading ? true : disabled}
       fullWidth={fullWidth}
       variant={variant}
+      {...rest}
     >
       {loading ? <FaSpinner color="#FFF" size={24} /> : children}
     </S.Button>

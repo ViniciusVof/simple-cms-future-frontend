@@ -36,9 +36,29 @@ export const TableHeadCell = styled.th`
   }
 `;
 
+export const TableHeadActionsCell = styled.th`
+  padding: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000;
+  border-bottom: 1px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4;
+
+  &:first-child {
+    border-left: 1px solid #e4e4e4;
+  }
+
+  &:last-child {
+    border-right: 1px solid #e4e4e4;
+  }
+`;
+
 export const TableBody = styled.tbody``;
 
 export const TableBodyRow = styled.tr`
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
   &:hover {
     cursor: pointer;
     background-color: #e4e4e4;
@@ -51,8 +71,6 @@ export const TableBodyCell = styled.td`
   font-weight: 400;
   font-size: 14px;
   color: #000;
-  border-bottom: 1px solid #e4e4e4;
-  border-top: 1px solid #e4e4e4;
 
   &:first-child {
     border-left: 1px solid #e4e4e4;
@@ -60,5 +78,31 @@ export const TableBodyCell = styled.td`
 
   &:last-child {
     border-right: 1px solid #e4e4e4;
+  }
+`;
+
+export const TableBodyActions = styled.div`
+  padding: 16px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000;
+
+  &:first-child {
+    border-left: 1px solid #e4e4e4;
+  }
+
+  &:last-child {
+    border-right: 1px solid #e4e4e4;
+  }
+`;
+
+export const TableBodyAction = styled.button`
+  background-color: transparent;
+  border: none;
+  margin-left: 16px;
+
+  &:hover {
+    cursor: pointer;
   }
 `;
